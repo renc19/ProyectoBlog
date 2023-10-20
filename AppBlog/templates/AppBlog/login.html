@@ -1,0 +1,16 @@
+{% extends "AppBlog/base.html" %}
+{% load static %}
+
+{% block section1 %}
+<body>
+    <div class="container">             
+        <h2>Inicio de Sesión</h2>
+        <title>Document</title>
+        <form action="" method="POST">{% csrf_token %}
+                {{ form.as_p }}
+            <button type="submit">Inciar Sesión</button>
+        </form>
+        <a>¿No tienes cuenta? <a href="{% url 'Register' %}">Crea tu cuenta aquí</a></a>
+    </div>
+</body>
+{% endblock %}

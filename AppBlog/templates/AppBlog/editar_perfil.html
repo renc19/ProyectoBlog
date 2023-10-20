@@ -1,0 +1,19 @@
+{% extends "AppBlog/base.html" %}
+{% load static %}
+
+{% block section1 %}
+<body>
+    <div class="container">
+    <h2>Cambiar perfil</h2>
+    <h2><img height="60xp" style="border-radius: 50%" src="{{avatar_url}}"> {{usuario}}</h2>
+    <a href="{% url 'EditarAvatar' %}"> Editar Avatar</a>
+    <h1></h1>
+    <form method="POST">{% csrf_token %}
+        
+        {{ form.as_p }}
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    </div>
+</body>
+{% endblock %}
