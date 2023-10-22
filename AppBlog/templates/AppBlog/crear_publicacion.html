@@ -1,0 +1,24 @@
+{% extends "AppBlog/base.html" %}
+{% load static %}
+
+{% block section1 %}
+<body>
+    <div class="text-center">
+    <h2>Realizar Publicación</h2>
+    <h1></h1>
+    <hr class="my-4">
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <hr class="my-4">
+        <div class="text-center">
+            <button class="btn btn-primary mt-4" type="submit"> 
+                <a style="text-decoration: none; color: white;">Publicar</a> 
+            </button>
+            <a style="text-decoration: none; color: white;" href="{% url 'Inicio' %}" class="btn btn-primary mt-4">Cancelar</a>
+        </div>
+    </form>
+    </div>
+</body>
+{% endblock %}

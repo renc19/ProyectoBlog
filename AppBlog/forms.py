@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Avatar
+from .models import Avatar, Publicacion
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(label="E-mail")
@@ -32,3 +32,12 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = Avatar
         fields = ['imagen']
+
+class PublicacionForm(forms.ModelForm):
+    class Meta:
+        model = Publicacion
+        fields = ['contenido', 'imagen']
+
+    def __init__(self, *args, **kwargs):
+        super(PublicacionForm, self).__init__(*args, **kwargs)
+        self.fields['contenido'].required = False

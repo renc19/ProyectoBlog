@@ -27,4 +27,8 @@ urlpatterns = [
     path('editarPerfil', views.editar_perfil, name="EditarPerfil"),
     path('editarAvatar', views.editar_avatar, name='EditarAvatar'),
     path('verPerfil', views.ver_perfil, name="VerPerfil"),
+    path('buscar_usuarios/', views.buscar_usuarios, name='BuscarUsuarios'),
+    path('perfil/<int:user_id>/', views.perfil_usuario, name='PerfilUsuario'),
+    path('crearPublicacion/', views.crear_publicacion, name='CrearPublicacion')
 ]
+
