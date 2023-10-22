@@ -5,15 +5,28 @@
 <!-- Page content-->
 <body>
     <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>
-            Make sure to keep all page content within the
-            <code>#page-content-wrapper</code>
-            . The top navbar is optional, and just for demonstration. Just create an element with the
-            <code>#sidebarToggle</code>
-            ID which will toggle the menu when clicked.
-        </p>
+        <h1 class="text-center mt-4"><img height="120xp" style="border-radius: 50%" src="{% static 'AppBlog/assets/rabbit.png' %}"> Rabbit</h1>
+        
+        <div class="text-center">
+            <button class="btn btn-primary mt-4"> 
+                <a href="{% url 'CrearPublicacion' %}" style="text-decoration: none; color: white;">Publicar</a> 
+                <p1>¿Qué está pasando?</p1>
+            </button>
+        </div>
+        <hr class="my-4">
+        <div class="publicaciones">
+            {% for publicacion in publicaciones %}
+                <div class="publicacion">
+                    <h4>{{ publicacion.autor.username }}</h4>
+                    <p class="text-muted">{{ publicacion.fecha_creacion|timesince }}</p>
+                    <p>{{ publicacion.contenido }}</p>
+                    {% if publicacion.imagen %}
+                        <img height="200xp" src="{{ publicacion.imagen.url }}">
+                    {% endif %}
+                </div>
+                <hr class="my-4">
+            {% endfor %}
+        </div>
     </div>
 </body>
 {% endblock %}

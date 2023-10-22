@@ -1,0 +1,15 @@
+{% extends "AppBlog/base.html" %}
+
+{% block section1 %}
+<h1>Resultados de la búsqueda de usuarios</h1>
+
+{% if usuarios %}
+    <ul>
+        {% for usuario in usuarios %}
+            <li><a href="{% url 'PerfilUsuario' user_id=usuario.id %}"> {{ usuario.username }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron usuarios.</p>
+{% endif %}
+{% endblock %}

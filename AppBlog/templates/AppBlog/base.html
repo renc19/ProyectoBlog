@@ -22,7 +22,7 @@
 
             <div class="border-end bg-white" id="sidebar-wrapper">
                 {% if not request.user.is_authenticated %}
-                <div class="sidebar-heading border-bottom bg-light"><img height="60xp" style="border-radius: 50%" src="{% static 'AppBlog/assets/rabbit.png' %}"> Rabbit</div>
+                <div class="sidebar-heading border-bottom bg-light"> Rabbit</div>
                 {% endif %}
                 
                 {% if request.user.is_authenticated %}
@@ -51,11 +51,16 @@
                 <!-- Top navigation-->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <div class="container-fluid">
-                        <button class="btn btn-primary" id="sidebarToggle">Crear Publicación</button>
+                        <button class="btn btn-primary" id="sidebarToggle">MENÚ</button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <!-- Aca iria la barra de busqueda -->
+                                <form class="navbar-form navbar-right" role="search" action="{% url 'BuscarUsuarios' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="search-input" name="q" placeholder="Buscar usuarios">
+                                    </div>
+                                </form>
                             </ul>
                         </div>
                     </div>
